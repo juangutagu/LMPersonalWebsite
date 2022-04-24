@@ -1,0 +1,195 @@
+:root {
+  --main-color: #dee8f1;
+  --secondary-color: #3b7aa4;
+  --tertiary-color: #a2e0e0;
+  --darker-color: #3b46a5;
+  --complementary-color: #a5663b;
+  --grey-color: #4d4d4d;
+  --grey2-color: #908d92;
+  --green-color: #09d3ac;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  background-color: var(--main-color);
+  color: white;
+
+  height: 100%;
+  margin: 0 auto;
+
+  display: grid;
+  grid-column-gap: 1em;
+  grid-row-gap: 2em;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows:
+    auto
+    1fr
+    auto;
+}
+
+/* --------------------------------------------------- MEDIA QUERIES */
+/* PC */
+@media (min-width: 1001px) {
+  main {
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows:
+      100px
+      1fr
+      100px;
+    grid-template-areas:
+      "myheader myheader myheader"
+      "mynav mysection myaside"
+      "myfooter myfooter myfooter";
+  }
+  ul {
+    flex-direction: column;
+  }
+  li {
+    width: 100% !important;
+  }
+}
+
+/* TABLET */
+@media (min-width: 600px) and (max-width: 1000px) {
+  main {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows:
+      150px
+      60px
+      1fr
+      100px;
+    grid-template-areas:
+      "myheader myheader"
+      "mynav mynav"
+      "mysection myaside"
+      "myfooter myfooter";
+  }
+}
+
+/* PHONE */
+@media (min-width: 100px) and (max-width: 600px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows:
+      150px
+      auto
+      1fr
+      1fr
+      100px;
+    grid-template-areas:
+      "myheader "
+      "mynav "
+      "mysection"
+      "myaside "
+      "myfooter ";
+  }
+  ul {
+    flex-direction: column;
+  }
+  li {
+    width: 100% !important;
+  }
+}
+
+/* -------------------------------------------- Secciones del GRID */
+header {
+  grid-area: myheader;
+  background-color: var(--secondary-color);
+  text-align: center;
+  height: 100%;
+  align-items: center;
+}
+
+nav {
+  grid-area: mynav;
+  background-color: var(--darker-color);
+  height: fit-content;
+}
+
+aside {
+  grid-area: myaside;
+  background-color: var(--complementary-color);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  height: -webkit-fill-available;
+  flex-flow: wrap;
+  align-items: start;
+  align-content: start;
+}
+
+section {
+  grid-area: mysection;
+  background-color: var(--secondary-color);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+footer {
+  grid-area: myfooter;
+  background-color: var(--grey-color);
+  color: white;
+  text-align: center;
+}
+
+/* -------------------------------- NAV */
+ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 15px;
+  text-align: center;
+  color: white;
+  width: 130px;
+  height: 60px;
+}
+
+li:hover {
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
+  font-size: 1.3em;
+}
+
+/* -------------------------------- GALERIA */
+.galeria {
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: stretch;
+  gap: 5px;
+  padding: 1%;
+}
+
+.galeria img {
+  border: #2196f3;
+  max-width: 100%;
+  padding: 5px;
+}
+.galeria :first-child {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/*-------------------------------- imagen */
+.imagen {
+  background-image: ("ciudad.jpg");
+  background-color: var(--main-color);
+  width: 100%;
+  height: 15%;
+  padding: 0.5em;
+}
